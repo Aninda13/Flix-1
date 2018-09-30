@@ -60,10 +60,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
             if let error = error { //if error = nil => continure to else no errors found, if error != nil assign it to error and execute if since error found
                 print(error.localizedDescription)
             }
-            else if let data = data { // if data != nil then we execute if, since there is content in data, if there was nothing then we skip
+            else if let data = data { // if data != nil then we execute it, since there is content in data, if there was nothing then we skip
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
                 //Parses our data from JSON to a swift dictionary where String is key and any is value
-                // Try means that we are avoid the do try way , which helps when handling errors
+                // Try means that we are avoiding the do{} try() way , which helps when handling errors
                 
                 let movies = dataDictionary["results"] as! [[String:Any]]
                 //Array of dictionaries, each dictionary represents a movie
@@ -97,8 +97,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         //We can use indexPath to make a reference to our dictionary movie so we can connect the row that we are on to the movie which we are
         //referring to. The size of the dictionary array is the same as the # of rows in our table view. So each row gets its own movie
         
-        
-        
         let movie = movies[indexPath.row] //A movie from dictionary array which changes depending on where indexpath is
         let title = movie["title"] as! String  //Getting title from the dictionary of the single movie
         let overview = movie["overview"] as! String //Getting overview from the dictionary of the single movie
@@ -112,7 +110,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         let posterURL = URL(string: lowerUrl+posterPathString)! //total url
         cell.posterImageView.af_setImage(withURL: posterURL) //Changing imgage attribute from MovieCell for each movie
         //Function is from Almofireimage pod
-        
         return cell //Our lay out for each cell, just with different attributes
     }
 
