@@ -59,7 +59,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
                 
                 self.movies = movies
                 self.tableView.reloadData() //Reloads table view after network request, to update movie count
-                
                 self.activityIndicator.stopAnimating()
             }
         }
@@ -88,7 +87,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         let lowerUrl = "https://image.tmdb.org/t/p/w500"
         let posterURL = URL(string: lowerUrl+posterPathString)! //total url
         cell.posterImageView.af_setImage(withURL: posterURL) //Changing imgage attribute from MovieCell for each movie
-        return cell 
+        return cell
     }
 
 
