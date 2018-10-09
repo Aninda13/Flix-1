@@ -70,7 +70,7 @@ Describe any challenges encountered while building the app.
     
     
     
-    # Project 2 - *Name of App Here*
+# Project 2 - *Name of App Here*
 
 **Name of your app** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
