@@ -12,18 +12,18 @@ import AlamofireImage
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource{
     //Inherited UITableViewDataSource to use View controller as data source for table view
-
+    
     
     @IBOutlet weak var tableView: UITableView! //table View
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! //Initial middle spinning circle
     
     var movies:[[String:Any]] = [] //Array of Dictionaries: All the movies
-
+    
     override func viewDidLoad() {
         activityIndicator.startAnimating()
         super.viewDidLoad()
         
-      //Creating refresh control
+        //Creating refresh control
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.pulledRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
@@ -89,6 +89,25 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         cell.posterImageView.af_setImage(withURL: posterURL) //Changing imgage attribute from MovieCell for each movie
         return cell
     }
+    
+    
+    
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Sender: Who called the transition
+        //Segue.Destination : Where is the transition going
+        
+        let detailVC = segue.destination as! MovieDetatilsViewController
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) { //row which called transition
+            let movie = movies[indexPath.row]
+            detailVC.movie = movie //Pass movie to detail View controller
+        }
+        
+    }
+    
+    //Removes gray region of selected cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
