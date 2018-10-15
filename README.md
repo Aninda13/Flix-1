@@ -131,15 +131,15 @@ Describe any challenges encountered while building the app.
 
 **Flix** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## User Stories
 
 The following **required** user stories are complete:
 
 - The following screens use AutoLayout to adapt to various orientations and screen sizes
-   - [ ] Movie feed view (+3pt)
-   - [ ] Detail view (+2pt)
+   - [x] Movie feed view (+3pt)
+   - [x] Detail view (+2pt)
 
 The following **stretch** user stories are implemented:
 
@@ -152,8 +152,8 @@ The following **additional** user stories are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. auto layouts programmatically
+2. constrait priority
 
 ## Video Walkthrough
 
@@ -166,6 +166,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+* Starting the text on the top left corner for the overview label. 
 
 ## License
 
