@@ -22,7 +22,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
     override func viewDidLoad() {
         activityIndicator.startAnimating()
         super.viewDidLoad()
-        
+
         //Creating refresh control
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.pulledRefresh(_:)), for: .valueChanged)
@@ -31,6 +31,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         tableView.dataSource = self
         self.tableView.rowHeight = 225 //Adjust the height of each cell
         fethMovies() //Get movie data
+        
     }
     
     
@@ -82,11 +83,14 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource{
         //Changing the attributes of each of the movie cells
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
+        cell.overviewLabel.sizeToFit()
+        
         
         let posterPathString = movie["poster_path"] as! String
         let lowerUrl = "https://image.tmdb.org/t/p/w500"
         let posterURL = URL(string: lowerUrl+posterPathString)! //total url
         cell.posterImageView.af_setImage(withURL: posterURL) //Changing imgage attribute from MovieCell for each movie
+        cell.overviewLabel.sizeToFit()
         return cell
     }
     

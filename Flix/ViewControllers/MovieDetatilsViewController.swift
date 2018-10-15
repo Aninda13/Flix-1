@@ -28,6 +28,7 @@ class MovieDetatilsViewController: UIViewController {
             titleLabel.text = movie["title"] as? String
             dateLabel.text = movie["release_date"] as? String
             overviewLabel.text = movie["overview"] as? String
+            overviewLabel.sizeToFit();
             
             //end url
             let backDropImageEndPath = movie["backdrop_path"] as! String
